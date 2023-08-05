@@ -25,6 +25,7 @@ node {
     //docker.withRegistry에 dockerhub는 앞서 설정한 harbor credentials의 ID이다.
     stage('Push image') {
         docker.withRegistry("http://211.183.3.100", "admin") {
+            app.push("22")
             app.push("latest-01") // 태그를 부여한다. latest-01, 22
         }
     }
