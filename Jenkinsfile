@@ -6,7 +6,7 @@ node {
         steps {
             git branch: 'main',
                 credentialsId: 'arendelle',
-                url: 'https://github.com/arendelle123/jenkins.git'
+                url: 'git@github.com:arendelle123/jenkins.git'
         } 
     }
 
