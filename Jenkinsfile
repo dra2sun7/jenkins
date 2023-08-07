@@ -2,8 +2,12 @@ def app
 
 node {
     // gitlab으로부터 소스 다운하는 stage
-    stage('Check'){
-        git 'https://github.com/arendelle123/jenkins.git'
+    stage('Checkout'){
+        steps {
+            git branch: 'main',
+                credentialsId: 'arendelle-k8s',
+                url: 'https://github.com/arendelle123/jenkins.git'
+        } 
     }
 
     // mvn 툴 선언하는 stage, 필자의 경우 maven 3.6.0을 사용중
