@@ -4,9 +4,7 @@ node {
     // gitlab으로부터 소스 다운하는 stage
     stage('Checkout'){
         steps {
-            git branch: 'main',
-                credentialsId: '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',
-                url: 'https://github.com/arendelle123/jenkins.git'
+          
         } 
     }
 
