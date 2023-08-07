@@ -5,7 +5,7 @@ node {
     stage('Checkout'){
         steps {
             git branch: 'main',
-                credentialsId: 'arendelle-k8s',
+                credentialsId: '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',
                 url: 'https://github.com/arendelle123/jenkins.git'
         } 
     }
