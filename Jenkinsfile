@@ -1,8 +1,8 @@
 def app
 
 node {
-    stage('Checkout'){
-            git branch: 'main'
+    stage('Checkout') {
+            checkout scm
     }
 
     stage('Ready'){
@@ -12,18 +12,19 @@ node {
     stage('Build'){
         sh "echo 'Build Spring Boot Jar'"
     }
+
     stage('Build image'){
-        app = docker.build("211.183.3.100/test/nginx")
+        app = docker.build("211.183.3.100/default/nginx:1.0")
     }
 
     stage('Push image') {
-        docker.withRegistry("http://211.183.3.100", "admin") {
+        docker.withRegistry("http://211.183.3.100", "Harbor") {
             app.push("22")
-            app.push("latest-01") // 태그를 부여한다. latest-01, 22
+            app.push("latest-01") 
         }
     }
 
     stage('Complete') {
         sh "echo 'The end'"
     }
-}
+  }
