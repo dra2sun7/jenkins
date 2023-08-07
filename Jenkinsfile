@@ -3,7 +3,7 @@ def app
 node {
     stage('Checkout'){
         steps {
-            git branch: 'main',
+            git branch: 'main'
         } 
     }
 
