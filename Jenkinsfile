@@ -2,9 +2,7 @@ def app
 
 node {
     stage('Checkout'){
-        steps {
             git branch: 'main'
-        } 
     }
 
     stage('Ready'){
